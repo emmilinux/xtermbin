@@ -3,11 +3,22 @@
 # Script para auxiliar, CLI termbin
 # http://termbin.com/
 
+#=============================|
+TEMP="temp.txt"
+SERVER="nc termbin.com 9999"
+#=============================|
+
+echo "===================="
+echo "Xtermbin versão 1.0"
+echo "===================="
+echo
+
 
 #=======================================|
 # Configuração inicial, caso o usuário
 # Abra o xtermbin em outro diretorio
 #=======================================|
+
 
 echo "Você deseja navegar até o diretorio do arquivo? [s/n]"
 read REP1
@@ -18,22 +29,31 @@ then
 read REP2
     cd $REP2
     echo "Listagem de arquivos .TXT" ;sleep 1
-    ls | grep .txt
-else
-    echo "Continuando..." ;sleep 1
+    ls
 fi
 
 #========================|
 # Continuação do script!
 #========================|
+echo
+echo "Digite o nome do arquivo de texto" ;sleep 1
+read ARQUIVO
 
-echo "Digite o nome do arquivo .TXT" ;sleep 1
-read RESPOSTA
+cat "$ARQUIVO" | $SERVER > $TEMP
+echo
+echo "O endereço é:"
+cat $TEMP
+rm $TEMP
+echo
 
-if [ $RESPOSTA = *.txt ]
+echo "Deseja enviar mais um arquivo? [s/n]"
+read REP3
+
+if [ $REP3 = "s" ]
 then
-    cat $RESPOSTA | nc termbin.com 9999
+   xtermbin
 else
-    echo "Você não digitou um arquivo com formato .txt" ;sleep 1
-    termbin
+   echo "OK, tchau! :D"
+   exit
 fi
+
