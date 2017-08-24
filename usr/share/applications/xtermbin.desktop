@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=XTermbin
+Version=1.0
+Comment=Envie seu texto para o termbin facilmente em CLI
+Exec=/usr/bin/xtermbin
+Terminal=true
+Icon=/usr/share/pixmaps/xtermbin.png
+Type=Application
+Categories=Network;

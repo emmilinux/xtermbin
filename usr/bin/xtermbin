@@ -1,0 +1,39 @@
+#!/bin/bash
+# Criado por slackjeff <lrcjefferson@gmail.com>
+# Script para auxiliar, CLI termbin
+# http://termbin.com/
+
+
+#=======================================|
+# Configuração inicial, caso o usuário
+# Abra o xtermbin em outro diretorio
+#=======================================|
+
+echo "Você deseja navegar até o diretorio do arquivo? [s/n]"
+read REP1
+
+if [ $REP1 = "s" ]
+then
+    echo "Digite o diretorio, (ex: /home/jeffe/Desktop)" ;sleep 1
+read REP2
+    cd $REP2
+    echo "Listagem de arquivos .TXT" ;sleep 1
+    ls | grep .txt
+else
+    echo "Continuando..." ;sleep 1
+fi
+
+#========================|
+# Continuação do script!
+#========================|
+
+echo "Digite o nome do arquivo .TXT" ;sleep 1
+read RESPOSTA
+
+if [ $RESPOSTA = *.txt ]
+then
+    cat $RESPOSTA | nc termbin.com 9999
+else
+    echo "Você não digitou um arquivo com formato .txt" ;sleep 1
+    termbin
+fi

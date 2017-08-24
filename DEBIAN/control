@@ -1,0 +1,9 @@
+Package: xtermbin
+Version: 1.0
+Section: network
+Priority: optional
+Architecture: all
+Depends: xterm
+Installed-Size: 10
+Maintainer: Jefferson Rocha <lrcjefferson@gmail.com>
+Description: Envie seus arquivos em texto via CLI facilmente para o termbin, uma alternativa a pastbin
