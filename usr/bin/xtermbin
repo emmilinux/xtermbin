@@ -3,20 +3,61 @@
 # Script para auxiliar, CLI termbin
 # http://termbin.com/
 
+
+#==========================================|
+# Configuração --h (Ajuda), --v (Versão).
+#==========================================|
+case $1 in
+"--help")
+	  echo "|============================|"
+	  echo "|      Manual de uso         |"
+	  echo "|============================|"
+	  echo
+          echo "O XTermbin utiliza o servidor termbin.com como base..."
+          echo -e "O Xtermbin visa facilitar as coisas, seu modo de uso é fácil\nVeja exemplos:"
+	  echo -e "O script pede para você indicar a pasta desejavel onde se encontra o arquivo\nEstá opção é válida caso seu Documento de texto não esteja na pasta\nDo usuário comum, em nosso caso é /home/jeffe" 
+	  echo
+	  echo -e "Caso seu documento de texto não esteja na sua pasta padrão navegue até onde se encontra o seu documento de texto\n-->Exemplo:\n/home/jeffe/MeusArquivosdeTexto."
+	  echo
+	  echo -e "Após isso o Xtermbin ira fazer uma listagem do conteudo da pasta.\n-->Exemplo:"
+	  echo
+	  echo "ara.txt		  Downloads	   Modelos	     pastbin.com   teste"
+	  echo "Área de trabalho  exemplo.desktop  Música	     pastebin.com  Vídeos"
+	  echo "arquivo.txt	  firasans	   NeonMenu.desktop  Público"
+	  echo "Documentos	  ha		   NeonPanel	     senha.txt"
+	  echo "Documents	  Imagens	   NeonPanel.conf    su"
+	  echo
+	  echo "Achamos o nosso arquivo de texto desejado, arquivo.txt."
+	  echo -e "Agora o XTermbin irá pedir para Digitar o nome do arquivo, use o Arquivo escolhido\n\nDigite o nome do arquivo de texto:"
+	  echo "arquivo.txt"
+          echo	  
+	  echo -e "Pronto, o seu link será imprimido na tela, algo como:\nhttp://termbin.com/fz7m\nutilize este link para passar as pessoas."
+	  echo
+ ;;
+
+"--version") 
+	  echo "O XTermbin está na Versão 1.1"
+ ;;
+*)
+
+
+#=============================|
+#Variaveis
 #=============================|
 TEMP="temp.txt"
 SERVER="nc termbin.com 9999"
 #=============================|
 
-echo "===================="
-echo "Xtermbin versão 1.0"
-echo "===================="
+echo "==========================="
+echo "Xtermbin versão 1.1"
+echo "Consulte --help para ajuda"
+echo "==========================="
 echo
-
 
 #=======================================|
 # Configuração inicial, caso o usuário
-# Abra o xtermbin em outro diretorio
+# Chame o xtermbin em outro diretorio
+# E não rode via Menu
 #=======================================|
 
 
@@ -43,7 +84,6 @@ cat "$ARQUIVO" | $SERVER > $TEMP
 echo
 echo "O endereço é:"
 cat $TEMP
-rm $TEMP
 echo
 
 echo "Deseja enviar mais um arquivo? [s/n]"
@@ -57,3 +97,6 @@ else
    exit
 fi
 
+# Fim do case
+;;
+esac
