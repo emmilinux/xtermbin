@@ -2,7 +2,7 @@ Package: xtermbin
 Version: 1.0
 Section: network
 Priority: optional
-Architecture: all
+Architecture: amd64
 Depends: xterm
 Installed-Size: 10
 Maintainer: Jefferson Rocha <lrcjefferson@gmail.com>
