@@ -1,5 +1,5 @@
 Package: xtermbin
-Version: 1.0
+Version: 1.2
 Section: network
 Priority: optional
 Architecture: amd64
