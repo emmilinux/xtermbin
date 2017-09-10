@@ -1,4 +1,4 @@
-<h1 align="center">XTermbix</h1>
+<h1 align="center">XTermbin</h1>
 <p align="center"> Envie seus arquivos de texto via CLI facilmente para o servidor termbin.</p>
 
 <p align="center"> 
